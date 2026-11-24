@@ -1,0 +1,288 @@
+export type ParticleKind = "petal" | "snow" | "firefly" | "none";
+
+export interface Theme {
+  id: string;
+  name: string;
+  /** Sky gradient, bottom then top. */
+  sky: [string, string];
+  /** Ground tile in the 3D view. */
+  slab: string;
+  slabSide: string;
+  /** Upward faces, low to high. */
+  top: [string, string, string];
+  /** Vertical faces, low to high. */
+  side: [string, string];
+  wood: string;
+  /** Windows, strata highlights, wave crests. */
+  accent: string;
+  glow: number;
+  sunLow: string;
+  sunHigh: string;
+  sun: number;
+  ambientSky: string;
+  ambientGround: string;
+  ambient: number;
+  shadow: string;
+  /** Corner squares and low planting, low to high. */
+  second: [string, string];
+  /**
+   * The same colours once lined up. Readers only see brightness, and the fussier
+   * ones need every dark tone under about half the brightness of every light one.
+   */
+  scanDark: [string, string, string];
+  scanSecond: [string, string];
+  scanLight: [string, string, string];
+  particles: ParticleKind;
+  particleColor: string;
+  /** Interface colours. */
+  panel: string;
+  field: string;
+  ink: string;
+  action: string;
+  onAction: string;
+}
+
+export const THEMES: Theme[] = [
+  {
+    id: "blossom",
+    name: "Blossom",
+    sky: ["#f7d7dd", "#c5d3f2"],
+    slab: "#eaf0d2",
+    slabSide: "#b98a90",
+    top: ["#f07fab", "#ffabc8", "#ffe1ea"],
+    side: ["#c64583", "#ffb1cd"],
+    wood: "#7d5652",
+    accent: "#fff0a8",
+    glow: 0.5,
+    sunLow: "#ffc4a8",
+    sunHigh: "#fff6ee",
+    sun: 2.9,
+    ambientSky: "#f0ecff",
+    ambientGround: "#f3b4c6",
+    ambient: 1.6,
+    shadow: "#6d2c55",
+    second: ["#4f8f3f", "#93c463"],
+    scanDark: ["#8a1d52", "#ad2c69", "#c23c78"],
+    scanSecond: ["#2f662a", "#46803a"],
+    scanLight: ["#f6ccd6", "#dce7b6", "#f9dde2"],
+    particles: "petal",
+    particleColor: "#ff9fc0",
+    panel: "#fff2f4",
+    field: "#fbe0e6",
+    ink: "#4a1230",
+    action: "#8d2258",
+    onAction: "#fff2f4",
+  },
+  {
+    id: "moss",
+    name: "Moss",
+    sky: ["#e3ead0", "#9dbfb4"],
+    slab: "#eee6c2",
+    slabSide: "#8f7f58",
+    top: ["#44904a", "#79bb55", "#d3e77c"],
+    side: ["#23694a", "#82c166"],
+    wood: "#7a5b3d",
+    accent: "#f3e58b",
+    glow: 0.4,
+    sunLow: "#ffcf87",
+    sunHigh: "#fffbe8",
+    sun: 2.8,
+    ambientSky: "#e8f6ea",
+    ambientGround: "#b0b878",
+    ambient: 1.55,
+    shadow: "#17382c",
+    second: ["#7d5a34", "#b98f56"],
+    scanDark: ["#17503a", "#2f6f3a", "#4f8030"],
+    scanSecond: ["#5d3f26", "#7a552f"],
+    scanLight: ["#ebe2b2", "#d3e4a2", "#e5d8a4"],
+    particles: "firefly",
+    particleColor: "#f4f0a0",
+    panel: "#f0f3df",
+    field: "#dfe6c6",
+    ink: "#12321f",
+    action: "#1f5a35",
+    onAction: "#f4f6e2",
+  },
+  {
+    id: "maple",
+    name: "Maple",
+    sky: ["#f5cf93", "#8fb0b4"],
+    slab: "#f3e3bd",
+    slabSide: "#94603c",
+    top: ["#d64027", "#f5803a", "#ffc95c"],
+    side: ["#a82a24", "#f39a45"],
+    wood: "#654639",
+    accent: "#ffe08a",
+    glow: 0.5,
+    sunLow: "#ff9d55",
+    sunHigh: "#fff3dc",
+    sun: 2.8,
+    ambientSky: "#eef2ec",
+    ambientGround: "#dc9a60",
+    ambient: 1.5,
+    shadow: "#4b1b12",
+    second: ["#4d6b3f", "#8a9a4c"],
+    scanDark: ["#8c2218", "#b2371a", "#c2481a"],
+    scanSecond: ["#33513a", "#4f6430"],
+    scanLight: ["#fadca0", "#f2cf8c", "#f6d6b2"],
+    particles: "petal",
+    particleColor: "#e8642a",
+    panel: "#fbe7c4",
+    field: "#f2d5a3",
+    ink: "#451509",
+    action: "#a82d16",
+    onAction: "#fff3de",
+  },
+  {
+    id: "aqua",
+    name: "Aqua",
+    sky: ["#fde9c9", "#86d3d2"],
+    slab: "#fbeacb",
+    slabSide: "#d8895f",
+    top: ["#18a29f", "#4fd0c1", "#d3f8e6"],
+    side: ["#0b6f88", "#4cc9c4"],
+    wood: "#9a6a48",
+    accent: "#ff8a66",
+    glow: 0.6,
+    sunLow: "#ffd2a6",
+    sunHigh: "#fffaf0",
+    sun: 3,
+    ambientSky: "#e8fbf8",
+    ambientGround: "#f2c79a",
+    ambient: 1.6,
+    shadow: "#0f5563",
+    second: ["#e0603f", "#ff9a70"],
+    scanDark: ["#0a5468", "#0f7680", "#188a88"],
+    scanSecond: ["#a83826", "#be482e"],
+    scanLight: ["#f9e2b6", "#f2d5a2", "#c8ebda"],
+    particles: "none",
+    particleColor: "#ffffff",
+    panel: "#fff3de",
+    field: "#f9e2bd",
+    ink: "#06343d",
+    action: "#bb4128",
+    onAction: "#fff6e8",
+  },
+  {
+    id: "frost",
+    name: "Frost",
+    sky: ["#eef6fb", "#9fc4e3"],
+    slab: "#f5fafd",
+    slabSide: "#7ea6c4",
+    top: ["#8cc3e6", "#c6e6f6", "#ffffff"],
+    side: ["#3b82b8", "#b4dcf2"],
+    wood: "#4d5b72",
+    accent: "#fff2c4",
+    glow: 0.5,
+    sunLow: "#ffc9b8",
+    sunHigh: "#ffffff",
+    sun: 2.5,
+    ambientSky: "#e2f2ff",
+    ambientGround: "#9cbbd6",
+    ambient: 1.5,
+    shadow: "#1d4a75",
+    second: ["#6a66b8", "#a7a3e0"],
+    scanDark: ["#174e82", "#28669f", "#3276ac"],
+    scanSecond: ["#433f8a", "#5a569f"],
+    scanLight: ["#c9e3f5", "#b9daf1", "#d6d9f6"],
+    particles: "snow",
+    particleColor: "#ffffff",
+    panel: "#f1f8fc",
+    field: "#dcebf5",
+    ink: "#0f3553",
+    action: "#1a5f92",
+    onAction: "#f5fbff",
+  },
+  {
+    id: "midnight",
+    name: "Midnight",
+    sky: ["#27326f", "#0b102c"],
+    slab: "#6672a8",
+    slabSide: "#232c5c",
+    top: ["#5a70bd", "#97abe6", "#eef3ff"],
+    side: ["#2b3568", "#7886c2"],
+    wood: "#2b2b52",
+    accent: "#ffcf73",
+    glow: 1.6,
+    sunLow: "#b9c6ff",
+    sunHigh: "#e6ecff",
+    sun: 2,
+    ambientSky: "#b3bbe0",
+    ambientGround: "#5a5a82",
+    ambient: 1.5,
+    shadow: "#02040f",
+    second: ["#7a4fa8", "#b78be0"],
+    scanDark: ["#141c56", "#28367f", "#3f51a4"],
+    scanSecond: ["#552b82", "#6f3f95"],
+    scanLight: ["#b0bef3", "#c6cffa", "#ffd686"],
+    particles: "firefly",
+    particleColor: "#ffdf93",
+    panel: "#131b45",
+    field: "#202b61",
+    ink: "#dfe6ff",
+    action: "#ffcf73",
+    onAction: "#1b1a3a",
+  },
+  {
+    id: "noir",
+    name: "Noir",
+    sky: ["#efede7", "#c3c4c6"],
+    slab: "#f5f3ee",
+    slabSide: "#7c7b78",
+    top: ["#3b3d43", "#76797f", "#d8dadd"],
+    side: ["#1f2125", "#6a6d73"],
+    wood: "#3a3532",
+    accent: "#e2432f",
+    glow: 0.9,
+    sunLow: "#ffe3cf",
+    sunHigh: "#ffffff",
+    sun: 2.7,
+    ambientSky: "#ffffff",
+    ambientGround: "#a7a6a3",
+    ambient: 1.4,
+    shadow: "#15161a",
+    second: ["#b5261b", "#ec5540"],
+    scanDark: ["#17181b", "#2f3136", "#4c4f56"],
+    scanSecond: ["#a51d16", "#cc3322"],
+    scanLight: ["#c6c6c8", "#d6d5d4", "#cdc9c4"],
+    particles: "none",
+    particleColor: "#ffffff",
+    panel: "#f6f5f1",
+    field: "#e6e4de",
+    ink: "#18191c",
+    action: "#c93522",
+    onAction: "#ffffff",
+  },
+  {
+    id: "arcade",
+    name: "Arcade",
+    sky: ["#57126b", "#170530"],
+    slab: "#4c2186",
+    slabSide: "#220b48",
+    top: ["#c2187b", "#ff5cb3", "#4df0ea"],
+    side: ["#5a189f", "#25cfe0"],
+    wood: "#5a1f8a",
+    accent: "#5cf5ee",
+    glow: 1.8,
+    sunLow: "#ff7ad0",
+    sunHigh: "#fff0ff",
+    sun: 2.3,
+    ambientSky: "#d3c2ff",
+    ambientGround: "#8a3fb5",
+    ambient: 1.5,
+    shadow: "#0a0118",
+    second: ["#2b4be0", "#6f8cff"],
+    scanDark: ["#4a1290", "#8a1f9e", "#c2187b"],
+    scanSecond: ["#1d2fb0", "#2f50d8"],
+    scanLight: ["#7deeee", "#a8f4ee", "#b9d6ff"],
+    particles: "firefly",
+    particleColor: "#62f3ee",
+    panel: "#240a44",
+    field: "#3a1566",
+    ink: "#ffdcf6",
+    action: "#5cf5ee",
+    onAction: "#240a44",
+  },
+];
+
+export const themeById = (id: string) => THEMES.find((t) => t.id === id) ?? THEMES[0];
